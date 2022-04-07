@@ -57,7 +57,7 @@ export default function Home() {
             <p>(Mobile compatible)</p>
             <button
               className="info-sign-up-btn"
-              onClick={() => (window.location.href = "/")}
+              onClick={() => (window.location.href = "./login")}
               type="button"
             >
               SIGN UP NOW
