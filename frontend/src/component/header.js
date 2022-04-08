@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
 export default function Header() {
+  //this will add zero pixel maximum height.
   const [height, setHeight] = useState("0px");
-
+  /*this function will check if the maximum height is zero,
+    then it will set height to 130px, otherwise maximum height is zero.  
+    */
   function toggleMenu() {
     if (height == "0px") setHeight("130px");
     else setHeight("0px");

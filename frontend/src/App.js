@@ -6,7 +6,7 @@ import Activity from "./pages/private/activities-form";
 import Dashboard from "./pages/private/dashboard";
 import Profile from "./pages/private/profile";
 
-//adding css
+//adding css respective to the pages
 import "./css/home.css"
 import "./css/main.css"
 import "./css/login.css"
@@ -20,7 +20,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-      //adding more routes here
+      //adding routes to pages here...
         <Route path="/" exact element={<Home />} />
         <Route path="/login" exact element={<Login />} />
         <Route path="/activitiesform" exact element={<Activity />} />

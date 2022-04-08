@@ -9,6 +9,7 @@ import TextField from "@mui/material/TextField";
 
 import Header from "../../component/header";
 
+//set style to be use in Modal
 const style = {
     position: "absolute",
     top: "50%",
@@ -22,7 +23,9 @@ const style = {
   };
 
 export default function Activity() {
+  //initialize empty activity
   const [activity, setActivity] = React.useState("");
+  //drop down activities
   const [activities, setActivities] = React.useState([
     "Run",
     "Bicycle Ride",
@@ -34,10 +37,12 @@ export default function Activity() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // will push a new activity user input to the activity
   function pushActivity() {
     if (activity !== "") {
       setActivities((oldArray) => [...oldArray, activity]);
       handleClose();
+      //if there is no activity input, this will alert
     } else alert("activities field is empty");
   }
 

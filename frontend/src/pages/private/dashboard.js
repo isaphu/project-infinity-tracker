@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
 import Header from "../../component/header";
-
+//set style for Modal
 const style = {
   position: "absolute",
   top: "50%",
