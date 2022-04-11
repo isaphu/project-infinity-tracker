@@ -274,9 +274,14 @@ export default function Dashboard() {
             />
             <br />
             <br />
-            <Button variant="outlined" onClick={handleClose}>
-              Update
-            </Button>
+            <Box display="flex" justifyContent="space-between">
+              <Button variant="outlined" onClick={handleClose}>
+                Delete
+              </Button>
+              <Button variant="outlined" onClick={handleClose}>
+                Update
+              </Button>
+            </Box>
           </Box>
         </Fade>
       </Modal>
