@@ -11,16 +11,16 @@ import Header from "../../component/header";
 
 //set style to be use in Modal
 const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function Activity() {
   //initialize empty activity
@@ -85,7 +85,18 @@ export default function Activity() {
               </div>
               <div className="input-box">
                 <span className="details">Duration</span>
-                <input type="text" placeholder="hh:mm:ss" required />
+                <Box display="flex" justifyContent="space-between" gap="5px">
+                  <input
+                    type="text"
+                    placeholder="hours"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="minutes"
+                    required
+                  />
+                </Box>
               </div>
               <div className="input-box">
                 <span className="details">Date</span>
