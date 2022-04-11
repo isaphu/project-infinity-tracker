@@ -286,7 +286,7 @@ export default function Dashboard() {
           <div class="row">
             <div class="footer-col">
               <h4>
-                <a href="./activitiesform">
+                <a href="./create-activities">
                   <img
                     src={require("../../media/icons/icons8-infinity-90.png")}
                     width="40px"
@@ -295,7 +295,7 @@ export default function Dashboard() {
               </h4>
               <ul>
                 <li>
-                  <a href="./activitiesform">CREATE ACTIVITY</a>
+                  <a href="./create-activities">CREATE ACTIVITY</a>
                 </li>
                 <li>
                   <a href="./dashboard">DASHBOARD</a>

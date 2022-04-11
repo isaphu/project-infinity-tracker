@@ -26,7 +26,7 @@ export default function Home() {
                 <a href="/">InfinityTracker™</a>
               </li>
               <li>
-                <a href="./login">
+                <a href="./internal-access">
                   SIGN UP | LOGIN
                   <img
                     src={require("../../media/icons/icons8-enter-96.png")}
@@ -57,7 +57,7 @@ export default function Home() {
             <p>(Mobile compatible)</p>
             <button
               className="info-sign-up-btn"
-              onClick={() => (window.location.href = "./login")}
+              onClick={() => (window.location.href = "./internal-access")}
               type="button"
             >
               SIGN UP NOW
@@ -142,7 +142,7 @@ export default function Home() {
                   <a href="/">InfinityTracker™</a>
                 </li>
                 <li className="footer-sign-btn">
-                  <a href="./login">SIGN UP</a>
+                  <a href="./internal-access">SIGN UP</a>
                 </li>
               </ul>
             </div>

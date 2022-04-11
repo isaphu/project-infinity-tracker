@@ -23,7 +23,7 @@ export default function Header() {
         <nav>
           <ul id="menuList" style={{ maxHeight: height }}>
             <li>
-              <a href="./activitiesform">CREATE ACTIVITY</a>
+              <a href="./create-activities">CREATE ACTIVITY</a>
             </li>
             <li>
               <a href="./dashboard">DASHBOARD</a>
