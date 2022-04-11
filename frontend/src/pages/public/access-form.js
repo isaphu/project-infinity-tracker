@@ -1,40 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { checkValidation } from "../../component/form-validator";
+import React, { useState } from "react";
 import Login from "../../component/login-form";
 import Signup from "../../component/sign-up-form";
 
-
 export default function InternalAccess() {
   const [isLogin, setIsLogin] = useState(true);
-  const [isClicked, setIsClicked] = useState(false);
-  const [inputValues, setInputValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [validation, setValidation] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setInputValues({ ...inputValues, [name]: value });
-  }
-
-  useEffect(() => {
-    const errors = checkValidation(isClicked, inputValues, validation);
-    if (errors) setValidation(errors);
-  }, [inputValues, isClicked]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   return (
     <div className="authContainer">
       <div className="wrapper">
@@ -74,7 +44,7 @@ export default function InternalAccess() {
           </div>
           <div className="form-inner">
             {isLogin ? (
-              <Login setIsLogin={setIsLogin} ></Login>
+              <Login setIsLogin={setIsLogin}></Login>
             ) : (
               <Signup></Signup>
             )}
