@@ -15,7 +15,7 @@ export default function Header() {
     <div className="navbar-container">
       <div className="navbar">
         <img
-          onClick={() => (window.location.href = "./activitiesform")}
+          onClick={() => (window.location.href = "./create-activities")}
           src={require("../media/icons/icons8-infinity-90.png")}
           className="logo"
         />

@@ -1,49 +1,10 @@
-import React, { useState } from "react";
+import PublicFooter from "../../component/public-page-footer";
+import PublicHeader from "../../component/public-page-header";
 
 export default function Home() {
-  //this will add zero pixel maximum height.
-  const [height, setHeight] = useState("0px");
-  /*this function will check if the maximum height is zero,
-    then it will set height to 130px, otherwise maximum height is zero.  
-    */
-  function toggleMenu() {
-    if (height == "0px") setHeight("130px");
-    else setHeight("0px");
-  }
   return (
     <div className="container">
-      <div className="navbar-container">
-        <div className="navbar">
-          <img
-            className="logo"
-            onClick={() => (window.location.href = "/")}
-            src={require("../../media/icons/icons8-infinity-90.png")}
-          />
-          <p>InfinityTracker™</p>
-          <nav>
-            <ul id="menuList" style={{ maxHeight: height }}>
-              <li>
-                <a href="/">InfinityTracker™</a>
-              </li>
-              <li>
-                <a href="./internal-access">
-                  SIGN UP | LOGIN
-                  <img
-                    src={require("../../media/icons/icons8-enter-96.png")}
-                    width="15px"
-                    height="13px"
-                  />
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <img
-            className="menu-icon"
-            src={require("../../media/icons/icons8-menu-squared-50.png")}
-            onClick={toggleMenu}
-          />
-        </div>
-      </div>
+      <PublicHeader></PublicHeader>
 
       <div className="info-row-container">
         <div className="row-inner-element">
@@ -125,70 +86,7 @@ export default function Home() {
         </form>
       </div>
 
-      <footer className="footer">
-        <div className="container">
-          <div className="row">
-            <div className="footer-col">
-              <h4>
-                <a href="/">
-                  <img
-                    src={require("../../media/icons/icons8-infinity-90.png")}
-                    width="40px"
-                  />
-                </a>
-              </h4>
-              <ul>
-                <li>
-                  <a href="/">InfinityTracker™</a>
-                </li>
-                <li className="footer-sign-btn">
-                  <a href="./internal-access">SIGN UP</a>
-                </li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Contact Info</h4>
-              <p>
-                <img
-                  src={require("../../media/icons/icons8-location-50.png")}
-                  width="15px"
-                />
-                4765 Alfred Drive
-                <br />
-                New York NY 10011
-              </p>
-              <p>
-                <img
-                  src={require("../../media/icons/icons8-phone-50.png")}
-                  width="15px"
-                />
-                909-690-8838
-              </p>
-              <p>
-                <img
-                  src={require("../../media/icons/icons8-email-64.png")}
-                  width="15px"
-                />
-                contact@it.com
-              </p>
-            </div>
-            <div className="footer-col">
-              <h4>follow us</h4>
-              <div className="social-links">
-                <a href="#">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#">
-                  <i className="fab fa-instagram"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <PublicFooter></PublicFooter>
     </div>
   );
 }
