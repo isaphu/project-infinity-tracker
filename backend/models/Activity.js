@@ -10,6 +10,9 @@ const ActivitySchema = new mongoose.Schema({
   duration: {
     type: Number,
   },
+  location: {
+    type: String,
+  },
   date: {
     type: Date,
     default: Date.now,
