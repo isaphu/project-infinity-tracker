@@ -2,7 +2,7 @@ const express = require("express");
 
 const server = express();
 
-server.use(express.json())
+server.use(express.json());
 
 server.listen(5000, function () {
   console.log("server is running on PORT: 5000");
