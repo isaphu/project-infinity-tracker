@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 //create activity schema
-const activitySchema = new mongoose.Schema({
+const ActivitySchema = new mongoose.Schema({
   activityType: {
     type: String,
   },
@@ -10,9 +10,10 @@ const activitySchema = new mongoose.Schema({
   duration: {
     type: Number,
   },
-  data: {
+  date: {
     type: Date,
+    default: Date.now,
   },
 });
 
-module.exports = mongoose.model("activity", activitySchema);
+module.exports = mongoose.model("Activity", ActivitySchema);
