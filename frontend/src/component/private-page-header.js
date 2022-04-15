@@ -9,7 +9,12 @@ export default function Header() {
   function toggleMenu() {
     if (height == "0px") setHeight("130px");
     else setHeight("0px");
-  }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    window.location.reload();
+  };
 
   return (
     <div className="navbar-container">
@@ -32,7 +37,7 @@ export default function Header() {
               <a href="./profile">PROFILE</a>
             </li>
             <li>
-              <a href="/">
+              <a href="/" onClick={handleLogout}>
                 LOG OUT
                 <img
                   width="15px"

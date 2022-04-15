@@ -19,8 +19,8 @@ app.use("api/v1/users", userRoutes);
 app.use("api/v1/auth", authRoutes);
 app.post("/api/v1/createActivities", activityRoutes);
 app.get("/api/v1/createActivities", activityRoutes);
-app.put("/api/v1/createActivities", activityRoutes);
-app.delete("/api/v1/createActivities", activityRoutes);
+app.put("/api/v1/createActivities/:id", activityRoutes);
+app.delete("/api/v1/createActivities/:id", activityRoutes);
 
 
 app.listen(5000, function () {

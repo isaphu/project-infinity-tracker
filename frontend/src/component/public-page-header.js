@@ -7,7 +7,7 @@ export default function PublicHeader() {
     then it will set height to 130px, otherwise maximum height is zero.  
     */
   function toggleMenu() {
-    if (height == "0px") setHeight("130px");
+    if (height === "0px") setHeight("130px");
     else setHeight("0px");
   }
     return (

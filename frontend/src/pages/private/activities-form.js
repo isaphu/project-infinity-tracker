@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
+import { useNavigate } from "react-router-dom";
+
 import Header from "../../component/private-page-header";
 import Footer from "../../component/private-page-footer";
 
@@ -24,8 +26,13 @@ const style = {
 };
 
 export default function Activity() {
+  const navigate = useNavigate();
   //initialize empty activity
   const [activity, setActivity] = React.useState("");
+  const [activityType, setActivityType] = React.useState("");
+  const [description, setDescription] = React.useState("");
+  const [mintues, setMintues] = React.useState(0);
+  const [hours, setHours] = React.useState(0);
   //drop down activities
   const [activities, setActivities] = React.useState([
     "Run",
@@ -47,6 +54,49 @@ export default function Activity() {
     } else alert("activities field is empty");
   }
 
+  async function submitHandler(event) {
+    event.preventDefault();
+
+    let allMins = hours * 60 + mintues;
+
+    const activity = {
+      activityType: activityType,
+      description: description,
+      duration: allMins,
+    };
+
+    const response = await fetch(
+      "http://localhost:5000/api/v1/createActivities",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(activity),
+      }
+    );
+
+    const mainContent = await response.json();
+    navigate("/dashboard");
+  }
+
+  function activityHandler(event) {
+    console.log(event.target.value);
+    setActivityType(event.target.value);
+  }
+  function descHandler(event) {
+    setDescription(event.target.value);
+  }
+
+  function hoursHandler(event) {
+    setHours(parseInt(event.target.value));
+  }
+
+  function minHandler(event) {
+    setMintues(parseInt(event.target.value));
+  }
+
   return (
     <div className="container">
       <Header />
@@ -54,11 +104,11 @@ export default function Activity() {
       <div className="form-container">
         <div className="form-inner-element">
           <div className="form-title">Activity Form</div>
-          <form action="#">
+          <form onSubmit={submitHandler}>
             <div className="activity-details">
               <div className="input-box">
                 <span className="details">Activity Type</span>
-                <select>
+                <select onChange={activityHandler}>
                   <option disabled selected value>
                     -- select activity --
                   </option>
@@ -79,6 +129,7 @@ export default function Activity() {
               <div className="input-box">
                 <span className="details">Description</span>
                 <input
+                  onChange={descHandler}
                   type="text"
                   placeholder="Enter the description"
                   required
@@ -87,22 +138,24 @@ export default function Activity() {
               <div className="input-box">
                 <span className="details">Duration</span>
                 <Box display="flex" justifyContent="space-between" gap="5px">
-                  <input
-                    type="text"
+                  <input 
+                    type="text" 
                     placeholder="hours"
-                    required
+                    onChange={hoursHandler} 
+                    required 
                   />
-                  <input
-                    type="text"
+                  <input 
+                    type="text" 
                     placeholder="minutes"
-                    required
+                    onChange={minHandler} 
+                    required 
                   />
                 </Box>
               </div>
-              <div className="input-box">
+              {/* <div className="input-box">
                 <span className="details">Date</span>
                 <input type="date" required />
-              </div>
+              </div> */}
             </div>
             <div className="form-button">
               <input type="reset" value="RESET" />

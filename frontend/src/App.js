@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 //adding pages
 import Home from "./pages/public/home";
 import InternalAccess from "./pages/public/access-form";
+import Signup from "./component/sign-up-form";
+import Login from "./component/login-form";
 import Activity from "./pages/private/activities-form";
 import Dashboard from "./pages/private/dashboard";
 import Profile from "./pages/private/profile";
@@ -17,15 +20,19 @@ import "./css/profile.css"
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 export default function App() {
+  const user = localStorage.getItem("token");
   return (
     <BrowserRouter>
       <Routes>
       //adding routes to pages here...
         <Route path="/" exact element={<Home />} />
         <Route path="/internal-access" exact element={<InternalAccess />} />
-        <Route path="/create-activities" exact element={<Activity />} />
-        <Route path="/dashboard" exact element={<Dashboard />} />
+        {user && 
+        <Route path="/create-activities" exact element={<Activity />} /> &&
+        <Route path="/create-activities" exact element={<Activity />} /> &&
+        <Route path="/dashboard" exact element={<Dashboard />} /> &&
         <Route path="/profile" exact element={<Profile />} />
+        }
       </Routes>
     </BrowserRouter>
   );
