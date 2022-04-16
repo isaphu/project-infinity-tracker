@@ -1,22 +1,19 @@
-const mongoose = require("mongoose");
-//create activity schema
+const mongoose = require('mongoose');
+
 const ActivitySchema = new mongoose.Schema({
-  activityType: {
-    type: String,
-  },
-  description: {
-    type: String,
-  },
-  duration: {
-    type: Number,
-  },
-  location: {
-    type: String,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
+	activityTitle: {
+		type: String,
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now,
+	},
 });
 
-module.exports = mongoose.model("Activity", ActivitySchema);
+ActivitySchema.virtual('creativities', {
+	ref: 'Creativity',
+	localField: '_id',
+	foreignField: 'activity',
+	justOne: false,
+});
+module.exports = mongoose.model('Activity', ActivitySchema);

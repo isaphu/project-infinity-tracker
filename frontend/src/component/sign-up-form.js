@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { checkValidation } from "./form-validator";
 
 export default function Signup() {
@@ -13,12 +11,12 @@ export default function Signup() {
     confirmPassword: "",
   });
   const [validation, setValidation] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
     password: "",
     confirmPassword: "",
   });
-  const [error, setError] = useState("")
-
-  const navigate = useNavigate();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -30,29 +28,13 @@ export default function Signup() {
     if (errors) setValidation(errors);
   }, [inputValues, isClicked]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const url = "http://localhost:5000/api/v1/users";
-      const {inputValues:res} = await axios.post(url, inputValues);
-      //nvaigate ไปไหน 
-      navigate("/login")
-      console.log(res.message);
-    } catch (error) {
-      if(
-        error.response && 
-        error.response.status >= 400 && 
-        error.response.status <= 500
-        ) {
-          setError(error.response.inputValues.message)
-        }
-    }
   };
-
   return (
     <form action="#" className="signup" onSubmit={handleSubmit}>
       <div className="field">
-        {/* {validation.firstName && <p>{validation.firstName}</p>} */}
+        {validation.firstName && <p>{validation.firstName}</p>}
         <input
           placeholder="First Name"
           type="text"
@@ -62,7 +44,7 @@ export default function Signup() {
         />
       </div>
       <div className="field">
-        {/* {validation.lastName && <p>{validation.lastName}</p>} */}
+        {validation.lastName && <p>{validation.lastName}</p>}
         <input
           placeholder="Last Name"
           type="text"
@@ -72,7 +54,7 @@ export default function Signup() {
         />
       </div>
       <div className="field">
-        {/* {validation.email && <p>{validation.email}</p>} */}
+        {validation.email && <p>{validation.email}</p>}
         <input
           placeholder="Email Address"
           type="text"
@@ -102,7 +84,6 @@ export default function Signup() {
       </div>
       <div className="field btn">
         <div className="btn-layer"></div>
-        {error && <div className="error_msg">{error}</div>}
         <input
           type="submit"
           value="Signup"

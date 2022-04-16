@@ -37,7 +37,7 @@ export default function Header() {
               <a href="./profile">PROFILE</a>
             </li>
             <li>
-              <a href="/" onClick={handleLogout}>
+              <a href="/">
                 LOG OUT
                 <img
                   width="15px"

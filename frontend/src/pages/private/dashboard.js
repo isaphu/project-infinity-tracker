@@ -24,77 +24,101 @@ const style = {
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(false);
-  const [allActivities, setAllActivities] = React.useState([]);
+
+  const [allCreativities, setAllCreativities] = React.useState([]);
+  const [activitiesCount, setActivitiesCount] = React.useState(0);
+  const [todays, setTodays] = React.useState(0);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   React.useEffect(() => {
-    fetch("http://localhost:5000/api/v1/createActivities")
+    fetch("http://localhost:5000/api/v1/creativities")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
 
-        setAllActivities(data.data);
+        setAllCreativities(data.data);
+      });
+
+    fetch("http://localhost:5000/api/v1/activities")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+        let allActivities = data.data;
+
+        let today = new Date();
+        let todayDate = today.getDate();
+
+        const todaysActivites = allActivities.filter((act) => {
+          let actDate = new Date(act.createdAt);
+          if (todayDate === actDate.getDate()) {
+            return act;
+          }
+        });
+
+        setTodays(todaysActivites.length);
+
+        setActivitiesCount(data.count);
       });
   }, []);
-
   return (
-    <div className="container">
+    <div class="container">
       <Header />
 
-      <div className="main-content">
+      <div class="main-content">
         <main>
-          <div className="cards">
-            <div className="card-single">
+          <div class="cards">
+            <div class="card-single">
               <div>
                 <span>Today's activities</span>
-                <h1>5</h1>
+                <h1>{todays}</h1>
               </div>
               <div>
-                <span className="las la-running"></span>
+                <span class="las la-running"></span>
               </div>
             </div>
-            <div className="card-single">
+            <div class="card-single">
               <div>
                 <span>Types of activities recorded</span>
-                <h1>10</h1>
+                <h1>{activitiesCount}</h1>
               </div>
               <div>
-                <span className="las la-tasks"></span>
+                <span class="las la-tasks"></span>
               </div>
             </div>
-            <div className="card-single">
+            <div class="card-single">
               <div>
                 <span>Total duration recorded</span>
                 <h1>10 hours 22 mins</h1>
               </div>
               <div>
-                <span className="las la-stopwatch"></span>
+                <span class="las la-stopwatch"></span>
               </div>
             </div>
-            <div className="card-single">
+            <div class="card-single">
               <div>
                 <span>Total activities recorded</span>
-                <h1>56</h1>
+                <h1>{allCreativities.length}</h1>
               </div>
               <div>
-                <span className="las la-bookmark"></span>
+                <span class="las la-bookmark"></span>
               </div>
             </div>
           </div>
 
-          <div className="recent-grid">
-            <div className="activitie-table">
-              <div className="card">
-                <div className="card-header">
+          <div class="recent-grid">
+            <div class="activitie-table">
+              <div class="card">
+                <div class="card-header">
                   <h2>Recent activities</h2>
 
                   <Button variant="outlined">
-                    Next page <span className="las la-arrow-right"></span>
+                    Next page <span class="las la-arrow-right"></span>
                   </Button>
                 </div>
-                <div className="card-body">
-                  <div className="table-responsive">
+                <div class="card-body">
+                  <div class="table-responsive">
                     <table width="100%">
                       <thead>
                         <tr>
@@ -105,11 +129,11 @@ export default function Dashboard() {
                         </tr>
                       </thead>
                       <tbody>
-                        {allActivities.map((cty) => {
+                        {allCreativities.map((cty) => {
                           return (
                             <tr>
                               <td>{cty.date}</td>
-                              <td>{cty.activityType}</td>
+                              <td>{cty.activity.activityTitle}</td>
                               <td>{cty.description}</td>
                               <td>{(cty.duration / 60).toFixed(2)} hours</td>
                               <td>
@@ -154,7 +178,7 @@ export default function Dashboard() {
             />
             <br />
             <br />
-            <div classNameName="input-box">
+            <div className="input-box">
               <select>
                 <option disabled selected value>
                   -- select activity --
