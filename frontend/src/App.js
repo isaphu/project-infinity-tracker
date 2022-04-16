@@ -1,10 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 //adding pages
 import Home from "./pages/public/home";
 import InternalAccess from "./pages/public/access-form";
-// import Signup from "./component/sign-up-form";
-// import Login from "./component/login-form";
 import Activity from "./pages/private/activities-form";
 import Dashboard from "./pages/private/dashboard";
 import Profile from "./pages/private/profile";

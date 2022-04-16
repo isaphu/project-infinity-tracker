@@ -5,8 +5,9 @@ const cors = require('cors');
 const connectDB = require('./config/database.js');
 const creativityRoutes = require('./routes/creativities.js');
 const activitiesRoutes = require('./routes/activities');
-// const userRoutes = require("./routes/users.js");
-// const authRoutes = require("./routes/auth.js");
+const userRoutes = require("./routes/users.js");
+const authRoutes = require("./routes/auth.js");
+const verifyRoutes = require("./routes/verifyUser.js");
 
 //connect database
 connectDB();
@@ -16,8 +17,9 @@ app.use(express.json());
 app.use(cors());
 
 // routes
-// app.use("api/v1/users", userRoutes);
-// app.use("api/v1/auth", authRoutes);
+app.use("/", userRoutes);
+app.use("/", authRoutes);
+app.use("/", verifyRoutes);
 app.use('/api/v1/creativities', creativityRoutes);
 app.use('/api/v1/activities', activitiesRoutes);
 

@@ -2,17 +2,13 @@ const jwt = require("jsonwebtoken");
 
 let User = require("../models/user");
 
-const login = async (req, res) => {
+const verifyUser = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
   //CHECKING IF USER EXIST ON DATABASE
   User.find({
-    $and: [
-      { email: { $eq: email } },
-      { password: { $eq: password } },
-      { verified: { $eq: "true" } },
-    ],
+    $and: [{ email: { $eq: email } }, { password: { $eq: password } }],
   })
 
     /// VALIDATING IF USER EXIST
@@ -24,17 +20,11 @@ const login = async (req, res) => {
           // expiresIn:10000,
         });
 
-        res.json({
-          auth: true,
-          token: token,
-          email: user[0].email,
-          firstName: user[0].firstName,
-          password: user[0].password,
-        });
+        res.json({ message: "You are authenticated" });
       } else {
-        res.status(400).json({ auth: false, message: "User did not exist" });
+        res.status(400).json({ message: "Must Log in first!" });
       }
     });
 };
 
-module.exports = login;
+module.exports = verifyUser;

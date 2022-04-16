@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { checkValidation } from "./form-validator";
+import Axios from "axios"; //allows us to make GET and POST any method requests from the browser.
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [isClicked, setIsClicked] = useState(false);
@@ -28,11 +30,60 @@ export default function Signup() {
     if (errors) setValidation(errors);
   }, [inputValues, isClicked]);
 
+  let navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (inputValues.password == inputValues.confirmPassword) {
+      //CHECKIING IF EMAIL EXIST
+
+      Axios.post(
+        "http://localhost:5000/register",
+
+        {
+          firstName: inputValues.firstName,
+          lastName: inputValues.lastName,
+          email: inputValues.email,
+          password: inputValues.password,
+        }
+      )
+        .then((res) => {
+          alert("Successfully Signed up");
+          window.location.reload();
+          navigate("/internal-access");
+        })
+        .catch((err) => {
+          if (err.response.data[27] == "1") {
+            alert("Email Already Exist!");
+          }
+        });
+    } else {
+      alert("Password does not match confirmation password");
+    }
   };
+
+  React.useEffect(() => {
+    if ("email" in localStorage && "password" in localStorage) {
+      Axios.post(
+        "http://localhost:5000/verifyUser",
+
+        {
+          email: localStorage.getItem("email"),
+          password: localStorage.getItem("password"),
+        }
+      )
+        .then((res) => {
+          navigate("/dashboard");
+        })
+        .catch((err) => {
+          navigate("/internal-access");
+        });
+    } else {
+      navigate("/internal-access");
+    }
+  }, []);
   return (
-    <form action="#" className="signup" onSubmit={handleSubmit}>
+    <form className="signup" onSubmit={handleSubmit}>
       <div className="field">
         {validation.firstName && <p>{validation.firstName}</p>}
         <input
@@ -41,6 +92,7 @@ export default function Signup() {
           name="firstName"
           onChange={(e) => handleChange(e)}
           value={inputValues.firstName}
+          required
         />
       </div>
       <div className="field">
@@ -51,16 +103,18 @@ export default function Signup() {
           name="lastName"
           onChange={(e) => handleChange(e)}
           value={inputValues.lastName}
+          required
         />
       </div>
       <div className="field">
         {validation.email && <p>{validation.email}</p>}
         <input
           placeholder="Email Address"
-          type="text"
+          type="email"
           name="email"
           onChange={(e) => handleChange(e)}
           value={inputValues.email}
+          required
         />
       </div>
       <div className="field">
@@ -71,6 +125,7 @@ export default function Signup() {
           name="password"
           onChange={(e) => handleChange(e)}
           value={inputValues.password}
+          required
         />
       </div>
       <div className="field">
@@ -80,6 +135,7 @@ export default function Signup() {
           name="confirmPassword"
           onChange={(e) => handleChange(e)}
           value={inputValues.confirmPassword}
+          required
         />
       </div>
       <div className="field btn">
