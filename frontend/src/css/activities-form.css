@@ -1,6 +1,6 @@
 .form-container {
   display: flex;
-  height: 70vh;
+  height: 90vh;
   justify-content: center;
   align-items: center;
   padding: 10px;
@@ -141,3 +141,4 @@ form .form-button input[type="submit"]:hover {
     width: 100%;
   }
 }
+
