@@ -6,6 +6,8 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Axios from "axios"; //allows us to make GET and POST any method requests from the browser.
+import { useNavigate } from "react-router-dom";
 
 import Header from "../../component/private-page-header";
 import Footer from "../../component/private-page-footer";
@@ -23,6 +25,7 @@ const style = {
 };
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
 
   const [allCreativities, setAllCreativities] = React.useState([]);
@@ -32,19 +35,36 @@ export default function Dashboard() {
   const handleClose = () => setOpen(false);
 
   React.useEffect(() => {
+    if ("email" in localStorage && "password" in localStorage) {
+      Axios.post(
+        "http://localhost:5000/verifyUser",
+
+        {
+          email: localStorage.getItem("email"),
+          password: localStorage.getItem("password"),
+        }
+      )
+        .then((res) => {
+          alert(res.response.data.message);
+        })
+        .catch((err) => {
+          alert(err.response.data.message);
+          navigate("/internal-access");
+        });
+    } else {
+      alert("You must log in first!");
+      navigate("/internal-access");
+    }
+
     fetch("http://localhost:5000/api/v1/creativities")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         setAllCreativities(data.data);
       });
 
     fetch("http://localhost:5000/api/v1/activities")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         let allActivities = data.data;
 
         let today = new Date();

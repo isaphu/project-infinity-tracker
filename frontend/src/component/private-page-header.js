@@ -12,7 +12,7 @@ export default function Header() {
   };
 
   const handleLogout = () => {
-    localStorage.clear()
+    localStorage.clear();
     window.location.reload();
   };
 
@@ -37,7 +37,7 @@ export default function Header() {
               <a href="./profile">PROFILE</a>
             </li>
             <li>
-              <a href="/" onClick={handleLogout}>
+              <a href="#" onClick={handleLogout}>
                 LOG OUT
                 <img
                   width="15px"
