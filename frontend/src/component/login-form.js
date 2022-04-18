@@ -42,12 +42,18 @@ export default function Login({ setIsLogin }) {
 
       {
         email: inputValues.email,
+
         password: inputValues.password,
       }
     )
       .then((res) => {
         localStorage.setItem("email", res.data.email);
         localStorage.setItem("password", res.data.password);
+        localStorage.setItem("firstName", res.data.firstName);
+        localStorage.setItem("lastName", res.data.lastName);
+        localStorage.setItem("gender", res.data.gender);
+        localStorage.setItem("birthday", res.data.birthday);
+        localStorage.setItem("token", res.data.token);
 
         alert("Successfully Login ");
 
