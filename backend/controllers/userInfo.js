@@ -1,8 +1,6 @@
-const jwt = require("jsonwebtoken");
-
 let User = require("../models/user");
 
-const login = async (req, res) => {
+const userInfo = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
@@ -14,15 +12,7 @@ const login = async (req, res) => {
     /// VALIDATING IF USER EXIST
     .then((user) => {
       if (user.length > 0) {
-        const id = user[0].id;
-
-        const token = jwt.sign({ id }, "jwtSecret", {
-          // expiresIn:10000,
-        });
-
         res.json({
-          auth: true,
-          token: token,
           email: user[0].email,
           firstName: user[0].firstName,
           password: user[0].password,
@@ -36,4 +26,4 @@ const login = async (req, res) => {
     });
 };
 
-module.exports = login;
+module.exports = userInfo;

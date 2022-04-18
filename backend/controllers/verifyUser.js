@@ -1,5 +1,3 @@
-const jwt = require("jsonwebtoken");
-
 let User = require("../models/user");
 
 const verifyUser = async (req, res) => {
@@ -15,10 +13,6 @@ const verifyUser = async (req, res) => {
     .then((user) => {
       if (user.length > 0) {
         const id = user[0].id;
-
-        const token = jwt.sign({ id }, "jwtSecret", {
-          // expiresIn:10000,
-        });
 
         res.json({ message: "You are authenticated" });
       } else {

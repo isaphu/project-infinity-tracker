@@ -7,6 +7,8 @@ const Register = async (req, res) => {
   const lastName = req.body.lastName;
   const email = req.body.email;
   const password = req.body.password;
+  const gender = "";
+  const birthday = "";
 
   ///CREATE DATA ON DATABASE
   const newUsers = new User({
@@ -14,6 +16,8 @@ const Register = async (req, res) => {
     lastName,
     email,
     password,
+    gender,
+    birthday,
   }); // Instantiate the User in user.model
 
   newUsers
