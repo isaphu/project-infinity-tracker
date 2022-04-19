@@ -90,7 +90,6 @@ export default function Login({ setIsLogin }) {
   return (
     <form action="#" className="login" onSubmit={handleSubmit}>
       <div className="field">
-        {validation.email && <p>{validation.email}</p>}
         <input
           placeholder="Email Address"
           type="email"
@@ -99,9 +98,9 @@ export default function Login({ setIsLogin }) {
           value={inputValues.email}
           required
         />
+        {validation.email && <p>{validation.email}</p>}
       </div>
       <div className="field">
-        {validation.password && <p>{validation.password}</p>}
         <input
           placeholder="Password"
           type="password"
@@ -110,6 +109,7 @@ export default function Login({ setIsLogin }) {
           value={inputValues.password}
           required
         />
+        {validation.password && <p>{validation.password}</p>}
       </div>
       <div className="field btn">
         <div className="btn-layer"></div>

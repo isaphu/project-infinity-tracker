@@ -85,7 +85,6 @@ export default function Signup() {
   return (
     <form className="signup" onSubmit={handleSubmit}>
       <div className="field">
-        {validation.firstName && <p>{validation.firstName}</p>}
         <input
           placeholder="First Name"
           type="text"
@@ -94,9 +93,9 @@ export default function Signup() {
           value={inputValues.firstName}
           required
         />
+        {validation.firstName && <p>{validation.firstName}</p>}
       </div>
       <div className="field">
-        {validation.lastName && <p>{validation.lastName}</p>}
         <input
           placeholder="Last Name"
           type="text"
@@ -105,9 +104,9 @@ export default function Signup() {
           value={inputValues.lastName}
           required
         />
+        {validation.lastName && <p>{validation.lastName}</p>}
       </div>
       <div className="field">
-        {validation.email && <p>{validation.email}</p>}
         <input
           placeholder="Email Address"
           type="email"
@@ -116,9 +115,9 @@ export default function Signup() {
           value={inputValues.email}
           required
         />
+        {validation.email && <p>{validation.email}</p>}
       </div>
       <div className="field">
-        {validation.password && <p>{validation.password}</p>}
         <input
           placeholder="Password"
           type="password"
@@ -127,6 +126,7 @@ export default function Signup() {
           value={inputValues.password}
           required
         />
+        {validation.password && <p>{validation.password}</p>}
       </div>
       <div className="field">
         <input
