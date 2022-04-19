@@ -8,6 +8,9 @@ export default function InternalAccess() {
   return (
     <div className="authContainer">
       <div className="wrapper">
+      <a href="/" className="exit-internal-access-btn">
+      <img src={require("../../media/icons/icons8-close-50.png")}/>
+      </a>
         <div className="title-text">
           {isLogin ? (
             <div className="title login">

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const [userInfo, setUserinfo] = useState([]);
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
   React.useEffect(() => {
     if ("email" in localStorage && "password" in localStorage) {
@@ -75,7 +75,7 @@ export default function Profile() {
   }
 
   return (
-    <div class="container">
+    <div>
       <Header />
 
       <div className="user-container">

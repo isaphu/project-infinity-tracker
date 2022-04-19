@@ -102,6 +102,7 @@ export default function Activity() {
       activity: activityType,
       description: description,
       duration: allMins,
+      location: "",
     };
 
     const response = await fetch(
@@ -146,7 +147,7 @@ export default function Activity() {
       });
   }, []);
   return (
-    <div className="container">
+    <div>
       <Header />
 
       <div className="form-container">
@@ -181,6 +182,11 @@ export default function Activity() {
                   type="text"
                   placeholder="Enter the description"
                   required
+                  // onKeyPress={(event) => {
+                  // 	if (!/[a-z]/i.test(event.key)) {
+                  // 	  event.preventDefault();
+                  // 	}
+                  //   }}
                 />
               </div>
               <div className="input-box">
@@ -188,13 +194,13 @@ export default function Activity() {
                 <Box display="flex" justifyContent="space-between" gap="5px">
                   <input
                     onChange={hoursHandler}
-                    type="text"
+                    type="number"
                     placeholder="hours"
                     required
                   />
                   <input
                     onChange={minHandler}
-                    type="text"
+                    type="number"
                     placeholder="minutes"
                     required
                   />

@@ -3,7 +3,7 @@ import PublicHeader from "../../component/public-page-header";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div >
       <PublicHeader></PublicHeader>
 
       <div className="info-row-container">
