@@ -186,12 +186,3 @@ tbody td {
     font-size: 13px;
   }
 }
-
-@media (min-width: 810px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .recent-grid {
-    grid-template-columns: 100% 40%;
-  }
-}
