@@ -204,6 +204,7 @@ form .btn input[type="submit"] {
 @media (max-width: 584px) {
   .wrapper {
     max-width: 300px;
+    /* max-height: 1000px; */
     font-size: large;
   }
   .wrapper .title {

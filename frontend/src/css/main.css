@@ -41,6 +41,8 @@ body {
   color: #ffffff;
   margin: 1%;
   font-family: "Poppins", sans-serif;
+  margin-left: 8px;
+  margin-right: auto;
 }
 
 .logo {
@@ -89,6 +91,13 @@ nav ul li a:hover {
   background-size: 100% 1px;
 }
 
+@media (max-width: 576px) {
+  .navbar P {
+    margin-right: auto;
+    margin-left: 8px;
+  }
+}
+
 /* footer */
 
 .footer .container {
@@ -101,6 +110,7 @@ nav ul li a:hover {
 }
 .footer ul {
   list-style: none;
+  padding-left: 0;
 }
 .footer {
   flex: 1;
@@ -266,6 +276,13 @@ nav ul li a:hover {
   }
   .logo {
     width: 4rem;
+  }
+  .daily-info_wrapper {
+    padding: 1rem;
+  }
+  .daily-info_email-input {
+    flex: none;
+    width: calc(100% - 120px);
   }
 }
 

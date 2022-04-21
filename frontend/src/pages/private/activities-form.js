@@ -103,6 +103,7 @@ export default function Activity() {
       description: description,
       duration: allMins,
       location: "",
+      date: new Date().toLocaleString(),
     };
 
     const response = await fetch(

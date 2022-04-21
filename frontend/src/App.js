@@ -9,6 +9,7 @@ import Profile from "./pages/private/profile";
 //adding css respective to the pages
 import "./css/home.css";
 import "./css/main.css";
+// import "./css/main2.css";
 import "./css/internal-access.css";
 import "./css/activities-form.css";
 import "./css/dashboard.css";
