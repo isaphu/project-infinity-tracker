@@ -42,7 +42,6 @@ export default function Login({ setIsLogin }) {
 
       {
         email: inputValues.email,
-
         password: inputValues.password,
       }
     )
