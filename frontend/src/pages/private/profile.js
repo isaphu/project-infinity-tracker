@@ -81,7 +81,7 @@ export default function Profile() {
       <div className="user-container">
         <div className="user-inner-element">
           <div className="user-title">
-            Hi! {localStorage.getItem("firstName")}
+            Hi! {localStorage.getItem("firstName")} {localStorage.getItem("lastName")}
           </div>
           <form action="#">
             <div className="user-details">
