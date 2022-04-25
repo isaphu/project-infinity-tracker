@@ -211,4 +211,7 @@ form .btn input[type="submit"] {
     padding: 25px;
     font-size: large;
   }
+  .title.signup {
+    font-size: 14px;
+  }
 }
