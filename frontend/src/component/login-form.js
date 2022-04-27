@@ -55,12 +55,10 @@ export default function Login({ setIsLogin }) {
         localStorage.setItem("token", res.data.token);
 
         alert("Successfully Login ");
-
         navigate("/dashboard");
       })
       .catch((err) => {
         alert(err.response.data.message);
-
         navigate("/internal-access");
       });
   };
