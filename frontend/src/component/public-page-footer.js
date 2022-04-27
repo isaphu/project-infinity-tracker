@@ -1,3 +1,8 @@
+const myStyle = {
+  color: "rgb(96,96,109)",
+  background: "none"
+}
+
 export default function PublicFooter() {
   return (
     <footer className="footer">
@@ -18,6 +23,9 @@ export default function PublicFooter() {
               </li>
               <li className="footer-sign-btn">
                 <a href="./internal-access">SIGN UP</a>
+              </li> 
+              <li>
+                <a href="https://isa-phu.vercel.app/" target="_blank" style={myStyle}>Developer</a>
               </li>
             </ul>
           </div>
