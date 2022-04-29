@@ -18,9 +18,9 @@ export default function PublicFooter() {
               </a>
             </h4>
             <ul>
-              <li>
+              {/* <li>
                 <a href="/">InfinityTracker™</a>
-              </li>
+              </li> */}
               <li className="footer-sign-btn">
                 <a href="./internal-access">SIGN UP</a>
               </li> 

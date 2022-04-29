@@ -21,9 +21,9 @@ export default function PublicHeader() {
           <p>InfinityTracker™</p>
           <nav>
             <ul id="menuList" style={{ maxHeight: height }}>
-              <li>
+              {/* <li>
                 <a href="/">InfinityTracker™</a>
-              </li>
+              </li> */}
               <li>
                 <a href="./internal-access">
                   SIGN UP | LOGIN

@@ -59,7 +59,7 @@
 }
 
 .info-sign-up-btn {
-  width: 143px;
+  width: 155px;
   border: 0;
   padding: 12px 10px;
   outline: none;
@@ -272,5 +272,34 @@
   }
   .other-storie_title {
     font-size: large;
+  }
+  .info-sign-up-btn {
+    width: 140px;
+    border: 0;
+    padding: 12px 10px;
+    outline: none;
+    color: #ffffff;
+    background: #000024;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: width 0.6s;
+    font-size: small;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .info-sign-up-btn img {
+    width: 17px;
+    display: none;
+  }
+
+  .info-sign-up-btn:hover img {
+    display: block;
+  }
+
+  .info-sign-up-btn:hover {
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
