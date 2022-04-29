@@ -178,7 +178,7 @@ nav ul li a:hover {
 }
 
 .footer-sign-btn {
-  display: inline-block;
+  display: inline;
   background-image: radial-gradient(
     circle,
     rgba(131, 58, 180, 1) 0%,
@@ -350,7 +350,7 @@ nav ul li a:hover {
     right: 0;
     z-index: 2;
   }
-  
+
   nav ul li {
     display: block;
     margin-top: 2px;
