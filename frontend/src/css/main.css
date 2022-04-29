@@ -178,26 +178,21 @@ nav ul li a:hover {
 }
 
 .footer-sign-btn {
-  /* background-color: red; */
-
-  /* Create the gradient. */
   background-image: radial-gradient(
     circle,
     rgba(131, 58, 180, 1) 0%,
     rgba(253, 29, 29, 1) 50%,
     rgba(252, 176, 69, 1) 100%
   );
-
-  /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
 
   /* Use the text as a mask for the background. */
   /* This will show the gradient as a text color rather than element bg. */
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: black;
   -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+  -moz-text-fill-color: black;
 }
 
 .daily-info_wrapper {
