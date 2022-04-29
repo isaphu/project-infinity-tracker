@@ -14,6 +14,7 @@ export default function PublicFooter() {
                 <img
                   src={require("../media/icons/icons8-infinity-90.png")}
                   width="40px"
+                  alt=""
                 />
               </a>
             </h4>
@@ -22,7 +23,14 @@ export default function PublicFooter() {
                 <a href="./internal-access">SIGN UP</a>
               </li> 
               <li>
-                <a href="https://www.isaphu.com/" target="_blank" style={myStyle}>Developer</a>
+                <a 
+                href="https://www.isaphu.com/" 
+                target="_blank" 
+                style={myStyle}
+                rel="noreferrer"
+                >
+                  Developer
+                </a>
               </li>
             </ul>
           </div>
@@ -32,6 +40,7 @@ export default function PublicFooter() {
               <img
                 src={require("../media/icons/icons8-location-50.png")}
                 width="15px"
+                alt=""
               />
               4765 Alfred Drive
               <br />
@@ -41,6 +50,7 @@ export default function PublicFooter() {
               <img
                 src={require("../media/icons/icons8-phone-50.png")}
                 width="15px"
+                alt=""
               />
               909-690-8838
             </p>
@@ -48,6 +58,7 @@ export default function PublicFooter() {
               <img
                 src={require("../media/icons/icons8-email-64.png")}
                 width="15px"
+                alt=""
               />
               contact@it.com
             </p>
