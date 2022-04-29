@@ -178,6 +178,7 @@ nav ul li a:hover {
 }
 
 .footer-sign-btn {
+  display: inline-block;
   background-image: radial-gradient(
     circle,
     rgba(131, 58, 180, 1) 0%,
@@ -193,7 +194,6 @@ nav ul li a:hover {
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
-  -webkit-box-decoration-break: clone;
 }
 
 .daily-info_wrapper {
