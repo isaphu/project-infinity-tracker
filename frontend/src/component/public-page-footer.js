@@ -22,7 +22,7 @@ export default function PublicFooter() {
                 <a href="./internal-access">SIGN UP</a>
               </li> 
               <li>
-                <a href="https://isa-phu.vercel.app/" target="_blank" style={myStyle}>Developer</a>
+                <a href="https://www.isaphu.com/" target="_blank" style={myStyle}>Developer</a>
               </li>
             </ul>
           </div>
