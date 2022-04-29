@@ -190,9 +190,10 @@ nav ul li a:hover {
   /* Use the text as a mask for the background. */
   /* This will show the gradient as a text color rather than element bg. */
   -webkit-background-clip: text;
-  -webkit-text-fill-color: black;
+  -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
-  -moz-text-fill-color: black;
+  -moz-text-fill-color: transparent;
+  text-shadow: 0px 0px #00000000;
 }
 
 .daily-info_wrapper {
