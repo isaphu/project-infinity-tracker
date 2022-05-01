@@ -178,7 +178,6 @@ nav ul li a:hover {
 }
 
 .footer-sign-btn {
-  display: block;
   background-image: radial-gradient(
     circle,
     rgba(131, 58, 180, 1) 0%,
